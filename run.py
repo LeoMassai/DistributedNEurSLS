@@ -13,10 +13,10 @@ Flags:
 import torch
 import argparse
 
-from src.models import SystemRobots, Controller
-from src.plots import plot_trajectories, plot_traj_vs_time
-from src.loss_functions import f_loss_states, f_loss_u, f_loss_ca, f_loss_obst
-from src.utils import calculate_collisions, set_params
+from models import SystemRobots, Controller
+from plots import plot_trajectories, plot_traj_vs_time
+from loss_functions import f_loss_states, f_loss_u, f_loss_ca, f_loss_obst
+from utils import calculate_collisions, set_params
 
 
 def main(sys_model):
@@ -30,7 +30,7 @@ def main(sys_model):
     if sys_model == "corridor" or sys_model == "robots":
         params = set_params(sys_model)
         min_dist, t_end, n_agents, x0, xbar, linear, learning_rate, epochs, Q, \
-        alpha_u, alpha_ca, alpha_obst, n_xi, l, n_traj, std_ini = params
+            alpha_u, alpha_ca, alpha_obst, n_xi, l, n_traj, std_ini = params
     else:
         raise ValueError("System model not implemented.")
     # # # # # # # # Define models # # # # # # # #
